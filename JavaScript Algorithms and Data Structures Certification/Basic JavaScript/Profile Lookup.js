@@ -41,6 +41,7 @@ function lookUpProfile(name, prop){
     // }
     // const cc = contacts[c()]
 
+    // let contact = contacts.find(({firstName}) => firstName === name)
     let contact = contacts.find(x => x.firstName === name)
 
     return contact ? contact[prop] || "No such property" : "No such contact"
