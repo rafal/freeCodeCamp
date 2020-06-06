@@ -7,12 +7,12 @@ function convertToRoman(num) {
   .replace(/LL/g, "C")
   .replace(/CCCCC/g, "D")
   .replace(/DD/g, "M")
-  .replace("IIII", "IV")
-  .replace("XXXX", "XL")
-  .replace("CCCC", "CD")
-  .replace(/VIV/g, "IX")
-  .replace(/LXL/g, "XC")
-  .replace(/DCD/g, "CM")
+  .replace(/IIII/, "IV")
+  .replace(/XXXX/, "XL")
+  .replace(/CCCC/, "CD")
+  .replace(/VIV/, "IX")
+  .replace(/LXL/, "XC")
+  .replace(/DCD/, "CM")
 }
 
 convertToRoman(99);
