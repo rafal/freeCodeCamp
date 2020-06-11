@@ -6,7 +6,6 @@ function checkCashRegister(price, cash, cid) {
   if (totalCashInDrawer < change) return {status: "INSUFFICIENT_FUNDS", change: []}
   if (totalCashInDrawer === change) return {status: "CLOSED", change: [...cid]}
   
-  console.log(cid)
   let newCid = [...cid]
   newCid[0][0] = 1
   newCid[1][0] = 5
