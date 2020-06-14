@@ -18,14 +18,15 @@ function checkCashRegister(price, cash, cid) {
     TWENTY: 2000,
     'ONE HUNDRED': 10000
   }
-  
+
   let coins = []
   for (let i = cidInCents.findIndex(coin => centValue[coin[0]] > change) - 1; i > 0, change > 0; i--){
     if (i < 0) break
-    while(centValue[cidInCents[i][0]] <= change && cidInCents[i][1] / centValue[cid[i][0]]){
-      coins.push(cidInCents[i][0])
-      change -= centValue[cidInCents[i][0]]
-      cidInCents[i][1] -= centValue[cidInCents[i][0]]
+    const coin = cidInCents[i][0]
+    while(centValue[coin] <= change && cidInCents[i][1] / centValue[cid[i][0]]){
+      coins.push(coin)
+      change -= centValue[coin]
+      cidInCents[i][1] -= centValue[coin]
     }
   }
   if (change !== 0) return {status: "INSUFFICIENT_FUNDS", change: []}
