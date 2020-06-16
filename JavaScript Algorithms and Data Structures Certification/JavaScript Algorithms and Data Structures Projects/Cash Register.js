@@ -33,16 +33,16 @@ function checkCashRegister(price, cash, cid) {
   if (change !== 0) return {status: "INSUFFICIENT_FUNDS", change: []}
   console.log(coins)
 
-  // const changeInCoinsAndBills = coins.reduce((x, y) => {
-  //   // if (x.length > 0) console.log(x[x.length - 1][0])
-  //   if (x.length > 0 && x[x.length - 1][0] === y) {
-  //     // console.log(x[x.length - 1][0] +"===" +y)
-  //     x[x.length - 1] = [y, x[x.length - 1][1] + centValue[y] / 100]
-  //     return x
-  //   } else {
-  //     return x.concat([[y, centValue[y] / 100]])
-  //   }
-  // }, [])
+  const changeInCoinsAndBills = coins.reduce((x, y) => {
+    // if (x.length > 0) console.log(x[x.length - 1][0])
+    if (x.length > 0 && x[x.length - 1][0] === y) {
+      // console.log(x[x.length - 1][0] +"===" +y)
+      x[x.length - 1] = [y, x[x.length - 1][1] + centValue[y] / 100]
+      return x
+    } else {
+      return x.concat([[y, centValue[y] / 100]])
+    }
+  }, [])
   // const changeInCoinsAndBills = coins.reduce((x, y) => {
   //   if (!x.includes(y)) {
   //     x.push(y)
@@ -57,7 +57,7 @@ function checkCashRegister(price, cash, cid) {
   //   }
   //   return x
   // }, [])
-  const changeInCoinsAndBills = [...new Set(coins)].map(coin => [coin, coins.reduce((n, coinX) => n + (coinX === coin), 0) * centValue[coin] / 100])
+  // const changeInCoinsAndBills = [...new Set(coins)].map(coin => [coin, coins.reduce((n, coinX) => n + (coinX === coin), 0) * centValue[coin] / 100])
   return {status: "OPEN", change: changeInCoinsAndBills}
 }
 
