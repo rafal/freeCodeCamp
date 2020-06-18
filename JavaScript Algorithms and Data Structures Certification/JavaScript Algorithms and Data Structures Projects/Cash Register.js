@@ -49,15 +49,15 @@ function checkCashRegister(price, cash, cid) {
   //   }
   //   return x
   // }, [])
-  const changeInCoinsAndBills = coins.reduce((x, y) => {
-    if (!(x.find(z => z[0] === y))){
-      x.push([y, centValue[y] / 100])
-    } else {
-      x[x.findIndex(z => z[0] === y)] = [y, x[x.findIndex(z => z[0] === y)][1] + centValue[y] / 100]
-    }
-    return x
-  }, [])
-  // const changeInCoinsAndBills = [...new Set(coins)].map(coin => [coin, coins.reduce((n, coinX) => n + (coinX === coin), 0) * centValue[coin] / 100])
+  // const changeInCoinsAndBills = coins.reduce((x, y) => {
+  //   if (!(x.find(z => z[0] === y))){
+  //     x.push([y, centValue[y] / 100])
+  //   } else {
+  //     x[x.findIndex(z => z[0] === y)] = [y, x[x.findIndex(z => z[0] === y)][1] + centValue[y] / 100]
+  //   }
+  //   return x
+  // }, [])
+  const changeInCoinsAndBills = [...new Set(coins)].map(coin => [coin, coins.reduce((n, coinX) => n + (coinX === coin), 0) * centValue[coin] / 100])
   return {status: "OPEN", change: changeInCoinsAndBills}
 }
 
